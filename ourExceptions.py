@@ -12,6 +12,14 @@ class InputTooSmallError(Error):
 class InputTooLargeError(Error):
     "Raised when the input value is too large"
     pass
+
+
+def thisThrows():
+    try:
+        raise InputTooSmallError
+    except Exception:
+        print("Told you this threw")
+        #  raise
 # user guesses a number until he/she gets it right
 # user needs to guess this number
 number = 20
@@ -30,3 +38,8 @@ while True:
     except:
         print("Invalid value, try again!")
 print("Congratulations! You guessed it correctly.")
+
+try:
+    thisThrows()
+except InputTooLargeError:
+    print("Will this catch?")
